@@ -23,7 +23,11 @@ class HomeController extends Controller
      */
     public function index(Request $request)
     {   
+        //setting session variables
         $request->session()->put(['sara'=>'admin']);
-        return $request->session()->all();
+        //return $request->session()->all();
+
+        //reading specific session data
+        return $request->session()->get('sara');
     }
 }
