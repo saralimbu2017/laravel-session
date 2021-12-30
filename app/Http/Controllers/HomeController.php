@@ -24,10 +24,16 @@ class HomeController extends Controller
     public function index(Request $request)
     {   
         //setting session variables
-        $request->session()->put(['sara'=>'admin']);
-        //return $request->session()->all();
+        //$request->session()->put(['sara'=>'admin']);
+        $request->session()->put(['apple'=>'fruit']);
+
+        //deleting sessin data
+        $request->session()->forget('apple');
+        //return  $request->session()->get('apple');
+        $request->session()->flush();
+        return $request->session()->all();
 
         //reading specific session data
-        return $request->session()->get('sara');
+        //return $request->session()->get('sara');
     }
 }
