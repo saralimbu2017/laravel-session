@@ -25,15 +25,22 @@ class HomeController extends Controller
     {   
         //setting session variables
         //$request->session()->put(['sara'=>'admin']);
-        $request->session()->put(['apple'=>'fruit']);
+        //$request->session()->put(['apple'=>'fruit']);
 
         //deleting sessin data
-        $request->session()->forget('apple');
+        //$request->session()->forget('apple');
+
+        //reading session data
         //return  $request->session()->get('apple');
-        $request->session()->flush();
-        return $request->session()->all();
+
+        //flushing session data
+        //$request->session()->flush();
+        //return $request->session()->all();
 
         //reading specific session data
         //return $request->session()->get('sara');
+
+        $request->session()->flash('message','Hello');
+        return $request->session()->get('message');
     }
 }
